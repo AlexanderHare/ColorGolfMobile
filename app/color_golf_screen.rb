@@ -24,6 +24,7 @@ class ColorGolfScreen < UI::Screen
   end
 
   def update
+    return
     get_view(:hole).text = "Hole #{game.hole} of 9"
     get_view(:target_color).background_color = game.target_color
     get_view(:player_color).background_color = game.player_color || :white
@@ -74,7 +75,7 @@ class ColorGolfScreen < UI::Screen
 
   def available_percentages
     @available_percentages ||= [["ff", "100%"],
-                                ["bf", "75%"],
+                                # ["bf", "75%"], #uncomment this line to hit the local ref threshold
                                 ["80", "50%"],
                                 ["3f", "25%"],
                                 ["00", "0%"]]
